@@ -21,6 +21,8 @@ pip install -r requirements.txt
 ### Launch local server
 ```
 workon moussaillon
+export FLASK_APP=moussaillon.py
+export FLASK_DEBUG=1
 cd moussaillon
 flask run
 ```
