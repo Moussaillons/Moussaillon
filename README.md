@@ -34,7 +34,7 @@ flask run
 ```
 
 ### Test
-Open [federation.dev](federation.dev) or [association.federation.dev](association.federation.dev) in your browser
+Open [federation.dev](http://federation.dev:5000) or [association.federation.dev](http://association.federation.dev:5000) in your browser
 
 ### Leave environment
 ```
