@@ -38,5 +38,5 @@ Open [federation.dev](federation.dev) or [association.federation.dev](associatio
 
 ### Leave environment
 ```
-desactivate
+deactivate
 ```
