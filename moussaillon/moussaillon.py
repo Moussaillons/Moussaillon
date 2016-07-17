@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
-app.config['SERVER_NAME'] = 'federation.dev:5000'
+app.config['SERVER_NAME'] = 'federation.dev'
 
 @app.route('/', subdomain='<association_name>')
 def website_home_route(association_name):
@@ -9,43 +9,43 @@ def website_home_route(association_name):
 
 @app.route('/')
 def root_route():
-    return "Root"
+    return render_template('panel/text.html', title="Dashboard", content="Bienvenue!")
 
 @app.route('/login')
 def login_route():
-    return "Login"
+    return render_template('panel/text.html', title="Login", content="not implemented yet")
 
 @app.route('/posts/')
 def posts_route():
-    return "Posts"
+    return render_template('panel/text.html', title="Posts", content="not implemented yet")
 
 @app.route('/posts/new')
 def new_post_route():
-    return "New post"
+    return render_template('panel/text.html', title="New Post", content="not implemented yet")
 
 @app.route('/posts/<string:post_name>')
 def edit_post_route(post_name):
-    return "Edit post: " + post_name
+    return render_template('panel/text.html', title="Edit post: " + post_name, content="not implemented yet")
 
 @app.route('/gallery/')
 def gallery_route():
-    return "Gallery"
+    return render_template('panel/text.html', title="Gallery", content="not implemented yet")
 
 @app.route('/gallery/upload')
 def upload_route():
-    return "Upload items"
+    return render_template('panel/text.html', title="Upload items", content="not implemented yet")
 
 @app.route('/calendar/')
 def calendar_route():
-    return "Events"
+    return render_template('panel/text.html', title="Events", content="not implemented yet")
 
 @app.route('/calendar/new')
 def new_event_route():
-    return "New event"
+    return render_template('panel/text.html', title="New event", content="not implemented yet")
 
 @app.route('/calendar/<string:event_name>')
 def edit_event_route(event_name):
-    return "Edit event: " + event_name
+    return render_template('panel/text.html', title="Edit event: " + event_name, content="not implemented yet")
 
 if __name__ == '__main__':
     app.run()
