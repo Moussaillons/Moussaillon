@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-app.config['SERVER_NAME'] = 'federation.dev'
+app.config['SERVER_NAME'] = 'federation.dev:5000'
 
 @app.route('/', subdomain='<association_name>')
 def website_home_route(association_name):

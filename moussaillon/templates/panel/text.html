@@ -2,13 +2,16 @@
 <html lang="fr">
 <head>
     <title>Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='panel.css') }}" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
     {% include 'panel/menu.html' without context %}
 
-    <h1>{{ title }}</h1>
-    {{ content }}
+    <div class="main">
+        <h1>{{ title }}</h1>
+        {{ content }}
 
-    {# a comment #}
+        {# a comment #}
+    </div>
 </body>
 </html>
