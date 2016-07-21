@@ -1,0 +1,18 @@
+language: python
+python:
+  - "3.5"
+install:
+  - "pip install virtualenvwrapper"
+  - "echo \"source /usr/local/bin/virtualenvwrapper.sh\" >> ~/.bashrc"
+  - "source ~/.bashrc"
+  - "mkvirtualenv moussaillon"
+  - "cd Moussaillon"
+  - "pip install -r requirements.txt"
+
+run:
+  - "workon moussaillon"
+  - "workon moussaillon"
+  - "export FLASK_APP=moussaillon.py"
+  - "export FLASK_DEBUG=1"
+  - "cd moussaillon"
+  - "flask run"
