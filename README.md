@@ -1,4 +1,4 @@
-# Moussaillon
+# Moussaillon [![Build Status](https://travis-ci.org/Moussaillons/Moussaillon.svg?branch=master)](https://travis-ci.org/Moussaillons/Moussaillon)
 A CMS for associations federations
 
 ## Installation
