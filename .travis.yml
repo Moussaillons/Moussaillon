@@ -9,3 +9,5 @@ run:
   - "export FLASK_DEBUG=1"
   - "cd moussaillon"
   - "flask run"
+
+script: "nosetests"
