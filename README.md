@@ -16,6 +16,7 @@ source ~/.bashrc
 mkvirtualenv moussaillon
 pip install -r requirements.txt
 ```
+You may have to change the `SERVER_NAME` variable in the `moussaillon.py` file in order to navigate on the website correctly.
 
 To be able to test subdomains, you need to modify the hosts file accordingly to your system and add:
 
