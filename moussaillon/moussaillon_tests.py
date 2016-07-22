@@ -22,7 +22,6 @@ class FlaskrTestCase(unittest.TestCase):
 
     def test_posts(self):
         req = self.app.get('/posts/')
-        print req
         assert b'Posts' in req.data
 
     def test_posts_new(self):
