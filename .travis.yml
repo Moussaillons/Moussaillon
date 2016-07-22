@@ -10,4 +10,6 @@ run:
   - "cd moussaillon"
   - "flask run"
 
-script: "python moussaillon_tests.py"
+script:
+  - "cd moussaillon"
+  - "python moussaillon_tests.py"
