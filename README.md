@@ -25,7 +25,12 @@ To be able to test subdomains, you need to modify the hosts file accordingly to 
 ```
 
 ## Usage
-### Launch local server
+### Launch local server automatically
+```
+./launch_server.sh
+```
+
+### Launch local server manually
 ```
 workon moussaillon
 export FLASK_APP=moussaillon.py
