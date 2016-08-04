@@ -83,7 +83,8 @@ def new_event_route(association_name=None):
 
 
 @app.route('/panel/calendar/<string:event_name>')
-@app.route('/panel/calendar/<string:event_name>', subdomain='<association_name>')
+@app.route('/panel/calendar/<string:event_name>',
+           subdomain='<association_name>')
 def edit_event_route(event_name, association_name=None):
     return render_template('panel/text.html',
                            title="Edit event: " + event_name,
