@@ -1,7 +1,8 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-app.config['SERVER_NAME'] = 'federation.dev:5000'
+app.config.from_pyfile('moussaillon_default_settings.cfg')
+app.config.from_pyfile('server_config.cfg', silent=True)
 
 
 @app.route('/')
