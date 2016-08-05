@@ -6,13 +6,13 @@ app.config['SERVER_NAME'] = 'federation.dev:5000'
 
 @app.route('/')
 @app.route('/', subdomain='<association_name>')
-def website_home_route(association_name=None):
+def website_home_route(association_name=""):
     return "Welcome to "+association_name+" website"
 
 
 @app.route('/panel/')
 @app.route('/panel/', subdomain='<association_name>')
-def root_route(association_name=None):
+def root_route(association_name=""):
     return render_template('panel/text.html',
                            title="Dashboard",
                            content="Bienvenue!")
@@ -20,7 +20,7 @@ def root_route(association_name=None):
 
 @app.route('/panel/login')
 @app.route('/panel/login', subdomain='<association_name>')
-def login_route(association_name=None):
+def login_route(association_name=""):
     return render_template('panel/text.html',
                            title="Login",
                            content="not implemented yet")
@@ -28,7 +28,7 @@ def login_route(association_name=None):
 
 @app.route('/panel/posts/')
 @app.route('/panel/posts/', subdomain='<association_name>')
-def posts_route(association_name=None):
+def posts_route(association_name=""):
     return render_template('panel/text.html',
                            title="Posts",
                            content="not implemented yet")
@@ -36,7 +36,7 @@ def posts_route(association_name=None):
 
 @app.route('/panel/posts/new')
 @app.route('/panel/posts/new', subdomain='<association_name>')
-def new_post_route(association_name=None):
+def new_post_route(association_name=""):
     return render_template('panel/text.html',
                            title="New Post",
                            content="not implemented yet")
@@ -44,7 +44,7 @@ def new_post_route(association_name=None):
 
 @app.route('/panel/posts/<string:post_name>')
 @app.route('/panel/posts/<string:post_name>', subdomain='<association_name>')
-def edit_post_route(post_name, association_name=None):
+def edit_post_route(post_name, association_name=""):
     return render_template('panel/text.html',
                            title="Edit post: " + post_name,
                            content="not implemented yet")
@@ -52,7 +52,7 @@ def edit_post_route(post_name, association_name=None):
 
 @app.route('/panel/gallery/')
 @app.route('/panel/gallery/', subdomain='<association_name>')
-def gallery_route(association_name=None):
+def gallery_route(association_name=""):
     return render_template('panel/text.html',
                            title="Gallery",
                            content="not implemented yet")
@@ -60,7 +60,7 @@ def gallery_route(association_name=None):
 
 @app.route('/panel/gallery/upload')
 @app.route('/panel/gallery/upload', subdomain='<association_name>')
-def upload_route(association_name=None):
+def upload_route(association_name=""):
     return render_template('panel/text.html',
                            title="Upload items",
                            content="not implemented yet")
@@ -68,7 +68,7 @@ def upload_route(association_name=None):
 
 @app.route('/panel/calendar/')
 @app.route('/panel/calendar/', subdomain='<association_name>')
-def calendar_route(association_name=None):
+def calendar_route(association_name=""):
     return render_template('panel/text.html',
                            title="Events",
                            content="not implemented yet")
@@ -76,7 +76,7 @@ def calendar_route(association_name=None):
 
 @app.route('/panel/calendar/new')
 @app.route('/panel/calendar/new', subdomain='<association_name>')
-def new_event_route(association_name=None):
+def new_event_route(association_name=""):
     return render_template('panel/text.html',
                            title="New event",
                            content="not implemented yet")
@@ -85,7 +85,7 @@ def new_event_route(association_name=None):
 @app.route('/panel/calendar/<string:event_name>')
 @app.route('/panel/calendar/<string:event_name>',
            subdomain='<association_name>')
-def edit_event_route(event_name, association_name=None):
+def edit_event_route(event_name, association_name=""):
     return render_template('panel/text.html',
                            title="Edit event: " + event_name,
                            content="not implemented yet")
