@@ -48,9 +48,7 @@ def root_route(association_name=""):
 @app.route('/panel/login')
 @app.route('/panel/login', subdomain='<association_name>')
 def login_route(association_name=""):
-    return render_template('panel/text.html',
-                           title="Login",
-                           content="not implemented yet")
+    return render_template('panel/login.html')
 
 
 @app.route('/panel/posts/')

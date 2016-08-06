@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='panel.css') }}" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+    <form class="login" action="index.html" method="post">
+        <div class="field">
+            <label for="email">Courriel</label>
+            <input type="email" name="email" value="">
+        </div>
+        <div class="field">
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" value="">
+        </div>
+        <input type="submit" name="login" value="Login">
+    </form>
+</body>
+</html>
