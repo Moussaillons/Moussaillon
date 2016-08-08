@@ -5,13 +5,11 @@ A CMS for associations' federations
 :licence: aGPL
 """
 
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
+import header
 import session
 import database
-app = Flask(__name__)
-
-app.config.from_pyfile('moussaillon_default_settings.cfg')
-app.config.from_pyfile('server_config.cfg', silent=True)
+app = header.app
 
 
 # Database functions
@@ -34,21 +32,39 @@ def website_home_route(association_name=""):
     return "Welcome to "+association_name+" website"
 
 
+@app.route('/panel/login', methods=['GET', 'POST'])
+@app.route('/panel/login', subdomain='<association_name>',
+           methods=['GET', 'POST'])
+def login_route(association_name=""):
+    if session.is_valid_session():
+        return redirect(url_for('dashboard_route'))
+    if request.method == 'POST':
+        created_session = session.create_session(request.form['email'],
+                                                 request.form['password'])
+        print(created_session)
+        if created_session is True:
+            return redirect(url_for('dashboard_route'))
+        print("no session created")
+    return render_template('panel/login.html')
+
+
+@app.route('/panel/logout')
+@app.route('/panel/logout', subdomain='<association_name>')
+def logout_route(association_name=""):
+    if session.is_valid_session():
+        session.logout()
+    return redirect(url_for('website_home_route'))
+
+
 @app.route('/panel/')
 @app.route('/panel/', subdomain='<association_name>')
-def root_route(association_name=""):
+def dashboard_route(association_name=""):
     if not session.is_valid_session():
         return redirect(url_for('login_route'))
     else:
         return render_template('panel/text.html',
                                title="Dashboard",
                                content="Bienvenue!")
-
-
-@app.route('/panel/login')
-@app.route('/panel/login', subdomain='<association_name>')
-def login_route(association_name=""):
-    return render_template('panel/login.html')
 
 
 @app.route('/panel/posts/')
