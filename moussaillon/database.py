@@ -1,10 +1,11 @@
+import header
 import sqlite3
 from flask import session, g
 
 
 def connect_db():
     """Connects to the specific database."""
-    rv = sqlite3.connect(app.config['DB_URI'])
+    rv = sqlite3.connect(header.app.config['DB_URI'])
     rv.row_factory = sqlite3.Row
     return rv
 
