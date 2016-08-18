@@ -9,6 +9,7 @@ from flask import Flask, render_template, redirect, url_for, request
 import header
 import session
 import database
+import template
 app = header.app
 
 
@@ -29,7 +30,9 @@ def close_connections(error):
 @app.route('/')
 @app.route('/', subdomain='<association_name>')
 def website_home_route(association_name=""):
-    return "Welcome to "+association_name+" website"
+    site = template.get_site_config(association_name)
+    posts = template.get_posts(site['id'])
+    return render_template('posts.html', site=site, posts=posts)
 
 
 @app.route('/panel/login', methods=['GET', 'POST'])

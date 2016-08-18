@@ -25,3 +25,15 @@ create table sessions (
     last_ping datetime not null,
     member integer REFERENCES members(id)
 );
+
+drop table if exists posts;
+create table posts (
+    id integer primary key autoincrement,
+    site integer REFERENCES sites(id),
+    URI text not null,
+    title text not null,
+    content text not null,
+    publication datetime not null
+);
+
+INSERT into posts(site, URI, title, content, publication) VALUES (1, 'merci', 'Merci mon capitaine!', "Merci de m'avoir accepté en tant que mousse mon capitaine. Je ne vous décevrai pas!", 'now');
