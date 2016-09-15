@@ -59,6 +59,30 @@ def logout_route(association_name=""):
     return redirect(url_for('website_home_route'))
 
 
+@app.route('/panel/login', methods=['GET', 'POST'])
+@app.route('/panel/login', subdomain='<association_name>',
+           methods=['GET', 'POST'])
+def login_route(association_name=""):
+    if session.is_valid_session():
+        return redirect(url_for('dashboard_route'))
+    if request.method == 'POST':
+        created_session = session.create_session(request.form['email'],
+                                                 request.form['password'])
+        print(created_session)
+        if created_session is True:
+            return redirect(url_for('dashboard_route'))
+        print("no session created")
+    return render_template('panel/login.html')
+
+
+@app.route('/panel/logout')
+@app.route('/panel/logout', subdomain='<association_name>')
+def logout_route(association_name=""):
+    if session.is_valid_session():
+        session.logout()
+    return redirect(url_for('website_home_route'))
+
+
 @app.route('/panel/')
 @app.route('/panel/', subdomain='<association_name>')
 def dashboard_route(association_name=""):
