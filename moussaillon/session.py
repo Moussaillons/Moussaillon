@@ -5,7 +5,8 @@ import datetime
 import time
 import os
 import base64
-from passlib.hash import bcrypt
+from werkzeug.security import generate_password_hash, \
+     check_password_hash
 
 
 def create_session(email, password):
@@ -15,7 +16,7 @@ def create_session(email, password):
     result = cursor.fetchone()
     if result is None:
         return False
-    elif bcrypt.verify(password, result['password']):
+    elif check_password_hash(result['password'], password):
         # generate a new key
         key = base64.b64encode(os.urandom(32))
         values = (key, )
