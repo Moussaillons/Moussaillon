@@ -28,5 +28,5 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=['moussaillon'],
-    install_requires=['flask', 'nose'],
+    install_requires=['flask'],
 )
