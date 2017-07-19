@@ -6,18 +6,34 @@ create table sites (
     description text
 );
 
-INSERT into sites(uri, name) VALUES ('', 'Moussaillon');
+INSERT into sites(uri, name, description) VALUES ('', 'Moussaillon');
+INSERT into sites(uri, name, description) VALUES ('echo', '>Echo', 'Association des cultures électronique de l UCP');
+INSERT into sites(uri, name, description) VALUES ('hazybot', 'Hazybot', 'Association de robotique de l UCP');
 
 drop table if exists members;
 create table members (
     id integer primary key autoincrement,
     mail text not null,
     name text not null,
-    password text not null,
+    password text not null
+);
+
+-- Every password is Potatoes14
+INSERT into members(mail, name, password) VALUES ('louis@domain.dev', 'Louis Desportes', 'pbkdf2:sha256:50000$BiZ6XJub$d82d74df2e3477365da24142a4af19f3ad282723c53e5c4f7e6a9bcd0980d79d');
+INSERT into members(mail, name, password) VALUES ('alex@domain.dev', 'Alexandre Fourgs', 'pbkdf2:sha256:50000$BiZ6XJub$d82d74df2e3477365da24142a4af19f3ad282723c53e5c4f7e6a9bcd0980d79d');
+INSERT into members(mail, name, password) VALUES ('bastien@domain.dev', 'Bastien Lepesant', 'pbkdf2:sha256:50000$BiZ6XJub$d82d74df2e3477365da24142a4af19f3ad282723c53e5c4f7e6a9bcd0980d79d');
+
+drop table if exists is_member;
+create table is_member (
+    id integer primary key autoincrement,
+    person integer REFERENCES members(id),
     site integer REFERENCES sites(id)
 );
 
-INSERT into members(mail, name, password, site) VALUES ('hello@domain.dev', 'John Anglin', '$2a$12$WZKyAa1hdAUoww5WU1RXIOuo9bfDFsz82fzw5/bXpPcwDmgmKNoSe', '');
+INSERT INTO is_member(person, site) VALUES (0, 0);
+INSERT INTO is_member(person, site) VALUES (0, 1);
+INSERT INTO is_member(person, site) VALUES (1, 1);
+INSERT INTO is_member(person, site) VALUES (2, 2);
 
 drop table if exists sessions;
 create table sessions (
