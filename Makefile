@@ -8,6 +8,7 @@ setup.sh:
 	echo "virtualenv-3 .venv" >> $@
 	echo ". .venv/bin/activate" >> $@
 	echo "pip install --editable ." >> $@
+	echo "sqlite3 moussaillon.db < schema.sql" >> $@
 	echo "deactivate" >> $@
 	chmod a+x $@
 
@@ -36,4 +37,4 @@ run: debug.sh $(APP_NAME).egg-info
 	./debug.sh
 
 clean:
-	@-rm -R setup.sh debug.sh .venv $(APP_NAME).egg-info ||:
+	@-rm -R setup.sh debug.sh .venv $(APP_NAME).egg-info moussaillon.db ||:

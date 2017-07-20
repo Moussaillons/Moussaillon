@@ -6,7 +6,7 @@ create table sites (
     description text
 );
 
-INSERT into sites(uri, name, description) VALUES ('', 'Moussaillon');
+INSERT into sites(uri, name, description) VALUES ('', 'Fédération UCP', 'Fédération des associations de l UCP');
 INSERT into sites(uri, name, description) VALUES ('echo', '>Echo', 'Association des cultures électronique de l UCP');
 INSERT into sites(uri, name, description) VALUES ('hazybot', 'Hazybot', 'Association de robotique de l UCP');
 
