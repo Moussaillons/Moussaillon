@@ -32,7 +32,7 @@ setup $(APP_NAME).egg-info .venv: setup.sh
 	echo "::1 federation.dev echo.federation.dev hazybot.federation.dev"
 	echo "if you have a better solution than this, please tell"
 
-run: debug.sh $(APP_NAME).egg-info
+debug: debug.sh $(APP_NAME).egg-info
 	# same rationale as the setup scenario
 	./debug.sh
 
