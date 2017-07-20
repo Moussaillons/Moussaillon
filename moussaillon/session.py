@@ -1,6 +1,5 @@
 from flask import session
-import header
-import database
+from moussaillon import app, database
 import datetime
 import time
 import os
@@ -54,7 +53,7 @@ def is_valid_session():
         now = datetime.datetime.utcnow().timestamp()
         last_ping = datetime.datetime.strptime(result['last_ping'],
                                                "%Y-%m-%d %H:%M:%S").timestamp()
-        max_timeout = header.app.config['SESSION_DURATION']
+        max_timeout = app.config['SESSION_DURATION']
         if now - last_ping > max_timeout:
             session.pop('session_key')
             return False

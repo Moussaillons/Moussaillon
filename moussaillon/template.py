@@ -1,5 +1,4 @@
-import header
-import database
+from moussaillon import app, database
 
 
 def get_site_config(subdomain=''):

@@ -6,11 +6,7 @@ A CMS for associations' federations
 """
 
 from flask import Flask, render_template, redirect, url_for, request
-import header
-import session
-import database
-import template
-app = header.app
+from moussaillon import app, session, database, template
 
 
 # Database functions
