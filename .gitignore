@@ -1,3 +1,11 @@
+# Moussaillon Specifics
+# debug env launcher (Makefile generated)
+debug.sh
+# install script (Makefile generated)
+setup.sh
+# database use schema.sql to generate (setup.sh/Makefile generated)
+moussaillon.db
+
 # from: https://github.com/github/gitignore/blob/master/Python.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
